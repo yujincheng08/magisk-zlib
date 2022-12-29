@@ -1035,7 +1035,7 @@ int ZLIB_INTERNAL _tr_tally (s, dist, lc)
 
 #ifdef TRUNCATE_BLOCK
     /* Try to guess if it is profitable to stop the current block here */
-    if ((s->last_lit & 0x1fff) == 0 && s->level > 2) {
+    if ((s->last_lit & 0xfff) == 0 && s->level > 2) {
         /* Compute an upper bound for the compressed length */
         ulg out_length = (ulg)s->last_lit*8L;
         ulg in_length = (ulg)((long)s->strstart - s->block_start);
